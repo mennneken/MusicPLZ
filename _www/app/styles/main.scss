@@ -1,0 +1,370 @@
+@import 'functions';
+@import 'reset';
+@import 'variables';
+@import 'fonts';
+@import 'animations';
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+
+html {font-size:1.125em;}
+
+body {
+  font-size: 1em;
+  font-family: $font;
+  color: $clr-dark;
+}
+
+.container {
+  width: percentage(315/375);
+  margin: 0 auto;
+}
+
+.header {
+  // background-image: url(../images/middle.png);
+  position: fixed;
+  left: 50%;
+
+  width: 100%;
+  height: em(60);
+  transform: translateX(-50%);
+
+  z-index: 10;
+
+  &--border {
+    margin-top: em(15);
+  }
+
+  &__title {
+    display: inline-block;
+    width: percentage(60/315);
+    transform: translateX(percentage(-15/60));
+  }
+
+  &__link {
+    display: block;
+    height: 1.6666666667em;
+
+    &:focus {
+      background-color: rgba($clr-accent, .25);
+    }
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: none;
+
+    padding: 1.5454545455em percentage(15/315);
+
+    float: right;
+    transform: translateX(percentage(15/60));
+  }
+
+  &__logo {
+    margin: .4166666667em 25%;
+  }
+}
+
+.nav {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  z-index: 5;
+  
+  animation: 500ms cubic-bezier(0.23, 1, 0.32, 1) 1 both topSlideOut;
+
+  &--active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    animation: 500ms cubic-bezier(0.23, 1, 0.32, 1) 1 both topSlideIn;
+  }
+
+  &__list {
+    height: em(400);
+  }
+
+  &__elem {
+    text-align: center;
+    
+    &:not(:last-child) {
+      margin-bottom: em(25);
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-size: $h3;
+    line-height: 1.6671701521;
+    padding: 0 .25em;
+    transition: all 4s ease;
+    
+    &:active, &:hover {
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        display: block;
+        height: .277861692em;
+        transform: translateY(-50%);
+        background-color: $clr-main;
+        border-radius: 2px;
+        z-index: -1;
+
+        animation: 250ms cubic-bezier(0.39, 0.575, 0.565, 1) 1 forwards menuSlideIn;
+      }
+    }
+  }
+}
+
+.banner {
+  position: relative;
+  background-color: $clr-main;
+  // animation: onLoadingPadding .5s ease 0s 1 normal forwards running;
+  &__img {
+    display: block;
+    height: 100vw;
+    width: 100%;
+
+    object-fit: cover;
+    object-position: 0% 50%;
+    
+    border-style: solid;
+    border-color: $clr-main;
+    box-sizing: border-box;
+
+    animation: onLoadingBorder .5s ease 0s 1 normal forwards running;
+  }
+
+  &__title {
+    font-size: $h4; // 25,452px
+    font-weight: $semi-bold;
+    line-height: .785792865; // 20px
+    position: absolute;
+    bottom: -.785792865em; // 20px
+
+    background-color: $clr-main;
+    padding: .628634292em .5893446488em .5893446488em; // 16px 15px 14px
+  }
+}
+
+.main {
+
+  &--full-height {
+    height: 100%;
+  }
+
+  &--header {
+    padding: .000891em 0;
+  }
+
+  &__vid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.section {
+  position: relative;
+
+  &__title {
+    font-size: $h4;
+  }
+
+  &__text {
+    margin-top: em(8);
+    max-width: 32.6666666667em;
+
+    &--big {
+      font-size: $h3;
+    
+      & em {
+        font-style: normal;
+        font-weight: $semi-bold;
+        color: $clr-main;
+      }
+    }
+  }
+  
+  &:first-child {
+    margin-top: em(45);
+  }
+
+  &:not(:first-child) {
+    margin-top: em(35);
+  }
+
+  &:last-child {
+    margin-bottom: em(35);
+  }
+  
+  &--story:first-child{
+    margin-top: 5em;
+  }
+}
+
+.home {
+  &__img {
+    display: block;
+    height: 86.2068965517%;
+    width: 100%;
+    object-fit: cover;
+    font-size: 0;
+  }
+
+  &__player {
+    height: 11.6941529235%;
+    background-color: #B2B2B2;
+
+    padding-top: em(14);
+  }
+
+  &__title {
+    color: $clr-main;
+    font-size: $p;
+    line-height: 1.6666666667;
+
+    &--song {
+      font-weight: $regular;
+    }
+  }
+
+  &__controls {
+    margin-top: em(1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  &__btn {
+    width: percentage(35/315);
+    height: 3.1818181818em;
+  }
+}
+
+
+.socials {
+  &__list{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  &__item {
+    height: 6.6772222222em; // 85 ÷ 12.729844413
+    width: percentage(78/315);
+    
+    font-size: $h5; // 12.729844413
+    text-align: center;
+  }
+
+  &__link {
+    color: $clr-medium;
+    display: block;
+    padding: 4.949em 0 .5498888889em;
+    background-position: center .7855555556em;
+    background-size: 3.535em;
+    background-repeat: no-repeat;
+
+    &--spotify {
+      background-image: url(../images/icn_spotify.svg);
+    }
+    &--soundcloud {
+      background-image: url(../images/icn_soundcloud.svg);
+    }
+    &--youtube {
+      background-image: url(../images/icn_youtube.svg);
+    }
+    &--apple-music {
+      background-image: url(../images/icn_apple-music.svg);
+    }
+  }
+}
+
+.new-realease{
+  &__cover {
+    width: 100%;
+    max-height: em(315);
+    object-fit: cover;
+    object-position: 50% 80%;
+  }
+
+  &__title {
+    position: absolute;
+    bottom: em(-11);
+
+    background-color: $clr-main;
+    padding: em(9) em(10) em(11);
+    display: inline;
+  }
+}
+
+.release-list {
+  font-size: 0;
+  &__elem {
+    display: inline-block;
+    width: percentage(143/315);
+    max-width: em(150);
+    background-color: $clr-main;
+    font-size: 1rem;
+    vertical-align: top;
+    margin-bottom: 1.11111111em;
+    padding-bottom: em(7);
+  }
+
+  &__cover {
+    display: block;
+    width: 100%;
+  }
+
+  &__title {
+    font-size: $p;
+    padding: em(6) percentage(5/143) em(4);
+    line-height: 1.1111111111em;
+  }
+
+  &__date {
+    color: $clr-medium;
+    font-size: $h5;
+    margin: 0 percentage(5/143);
+    margin-bottom: 7px;
+  }
+}
+
+.footer {
+  height: em(40);
+  background-color: $clr-main;
+  
+  &__elem {
+    display: inline-block;
+    margin: em(9) 0 em(10);
+
+    &:not(:first-child){
+      float: right;
+    }
+  }
+
+  &__link {
+    padding: .707em 0 .7855555556em;
+    font-size: $h5; // 12,729844413
+  }
+}
+
+@media screen and (max-width: 549px) {
+  .release-list__elem:not(:nth-child(even)){
+    margin-right: percentage(29/315);
+  }
+}
+// > 500px
+@media screen and (min-width: 550px) {
+  .container {
+    width: percentage(708/768);
+  }
+  .release-list {
+    &__elem:not(:nth-child(4n)){
+      margin-right: percentage(36/708);
+    }
+  }
+}
