@@ -1,5 +1,5 @@
-_www/node_modules
-_www/dist/
-_www/.tmp
-_www/app.yaml
-_www/docs/
+node_modules
+dist/
+.tmp
+app.yaml
+docs/
