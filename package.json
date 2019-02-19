@@ -1,0 +1,23 @@
+{
+  "name": "musicplz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "service-worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch styles/main.scss -o styles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathan-hage/MusicPLZ.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathan-hage/MusicPLZ/issues"
+  },
+  "homepage": "https://github.com/nathan-hage/MusicPLZ#readme",
+  "dependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
