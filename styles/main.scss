@@ -1,11 +1,7 @@
-@import 'functions';
-@import 'reset';
-@import 'variables';
-@import 'fonts';
-@import 'animations';
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+@import 'functions', 'reset', 'variables', 'fonts', 'animations';
 
-html {font-size:1.125em;}
+html { font-size:1.125em; }
 
 body {
   font-size: 1em;
@@ -120,30 +116,34 @@ body {
 }
 
 .banner {
-  height: calc(100vh - 20px); // Window height - title bottom translation.
+  height: calc(100vh - 0.5893446488em); // Window height - title bottom translation.
   position: relative;
   background-color: $clr-main;
+  
   &__img {
     display: block;
     height: 100%;
-    width: auto;
+    width: 100%;
 
     object-fit: cover;
     object-position: 0% 50%;
     
-    border-style: solid;
-    border-color: $clr-main;
     box-sizing: border-box;
+    animation: onLoadingBorder .7s ease 1s 1 normal forwards running;
+  }
 
-    animation: onLoadingBorder .5s ease 0s 1 normal forwards running;
+  > .container {
+    position: relative;
   }
 
   &__title {
+    box-sizing: border-box;
+    display: block;
     font-size: $h4; // 25,452px
     font-weight: $semi-bold;
     line-height: .785792865; // 20px
     position: absolute;
-    bottom: em(-20); // 20px
+    bottom: -0.5893446488em; // 20px
 
     background-color: $clr-main;
     padding: .628634292em .5893446488em .5893446488em; // 16px 15px 14px
@@ -270,6 +270,8 @@ body {
     background-size: 3.535em;
     background-repeat: no-repeat;
 
+    transition: color 200ms ease-in-out; 
+
     &--spotify {
       background-image: url(../images/icn_spotify.svg);
     }
@@ -281,6 +283,10 @@ body {
     }
     &--apple-music {
       background-image: url(../images/icn_apple-music.svg);
+    }
+
+    &:hover {
+      color: $clr-main;
     }
   }
 }
@@ -308,7 +314,7 @@ body {
   font-size: 0;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   grid-gap: 30px;
 
   &__elem {
@@ -362,4 +368,8 @@ body {
   .container {
     width: percentage(708/768);
   }
+}
+
+a[active] {
+
 }
